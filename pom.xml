@@ -20,6 +20,15 @@
     </modules>
     <name>sport-app</name>
     <build>
+        <finalName>snail</finalName>
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <testSourceDirectory>src/test</testSourceDirectory>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -33,6 +42,62 @@
             </plugin>
         </plugins>
     </build>
+    <profiles>
+        <!-- 开发环境 -->
+        <profile>
+            <id>sport-dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <mvn.jdbc.mysql.Driver>com.mysql.jdbc.Driver</mvn.jdbc.mysql.Driver>
+                <mvn.jdbc.mysql.url>jdbc:mysql://localhost:3306/sport?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false</mvn.jdbc.mysql.url>
+                <mvn.jdbc.mysql.username>root</mvn.jdbc.mysql.username>
+                <mvn.jdbc.mysql.password>root</mvn.jdbc.mysql.password>
+                <mvn.log.business.level>DEBUG</mvn.log.business.level>
+                <mvn.log.lib.level>DEBUG</mvn.log.lib.level>
+                <mvn.app.name>snail</mvn.app.name>
+                <mvn.domain>snail</mvn.domain>
+            </properties>
+        </profile>
+
+        <!-- 测试环境 -->
+        <profile>
+            <id>sport-test</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <mvn.jdbc.mysql.Driver>com.mysql.jdbc.Driver</mvn.jdbc.mysql.Driver>
+                <mvn.jdbc.mysql.url>jdbc:mysql://localhost:3306/sport?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false </mvn.jdbc.mysql.url>
+                <mvn.jdbc.mysql.username>root</mvn.jdbc.mysql.username>
+                <mvn.jdbc.mysql.password>root</mvn.jdbc.mysql.password>
+                <mvn.log.business.level>root</mvn.log.business.level>
+                <mvn.log.lib.level>DEBUG</mvn.log.lib.level>
+                <mvn.app.name>steam-age</mvn.app.name>
+                <mvn.domain>steam-age</mvn.domain>
+            </properties>
+        </profile>
+
+        <!-- 生产环境 -->
+        <profile>
+            <id>sport-product</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <mvn.jdbc.mysql.Driver>com.mysql.jdbc.Driver</mvn.jdbc.mysql.Driver>
+                <mvn.jdbc.mysql.url>jdbc:mysql://localhost:3306/sport?unicode=utf8</mvn.jdbc.mysql.url>
+                <mvn.jdbc.mysql.username>root</mvn.jdbc.mysql.username>
+                <mvn.jdbc.mysql.password>root</mvn.jdbc.mysql.password>
+                <mvn.log.business.level>DEBUG</mvn.log.business.level>
+                <mvn.log.lib.level>DEBUG</mvn.log.lib.level>
+                <mvn.app.name>steam-age</mvn.app.name>
+                <mvn.domain>steam-age</mvn.domain>
+            </properties>
+        </profile>
+    </profiles>
+
     <!-- 设置统一控制版本 -->
     <properties>
         <java-version>1.8</java-version>
