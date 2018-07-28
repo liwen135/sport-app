@@ -9,6 +9,7 @@
 
     <import resource="classpath*:spring/spring-dao.xml"/>
     <import resource="classpath*:spring/spring-mvc.xml"/>
+    <import resource="classpath*:spring/sport-product-provider.xml"/>
 
 
 </beans>

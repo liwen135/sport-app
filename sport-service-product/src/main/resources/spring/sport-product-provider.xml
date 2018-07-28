@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!--服务提供者 -->
+    <!--1.名称 -->
+    <dubbo:application name="sport-service-product"/>
+    <!--2.注册中心 -->
+    <dubbo:registry address="192.168.198.134:2181" protocol="zookeeper"/>
+    <!--3.服务器提供的端口 -->
+    <dubbo:protocol port="20880" name="dubbo"/>
+    <!-- 4.实现类-->
+    <dubbo:service interface="com.ca.sport.service.test.TestAppService" ref="testAppService"/>
+</beans>

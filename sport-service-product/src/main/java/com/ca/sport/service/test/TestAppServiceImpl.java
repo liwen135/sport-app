@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
-@Service
+@Service("testAppService")
 public class TestAppServiceImpl implements TestAppService {
     @Resource
     private TestAppDao testAppDao;
