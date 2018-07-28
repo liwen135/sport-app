@@ -1,0 +1,23 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.ca.sport</groupId>
+  <artifactId>sport-app</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <modules>
+    <module>sport-common</module>
+    <module>sport-pojo</module>
+    <module>sport-interface</module>
+    <module>sport-dao</module>
+    <module>sport-console</module>
+    <module>sport-portal</module>
+    <module>sport-login</module>
+    <module>sport-service-cob</module>
+    <module>sport-service-cms</module>
+    <module>sport-service-product</module>
+    <module>sport-service-solar</module>
+  </modules>
+  <name>sport-app</name>
+
+</project>
