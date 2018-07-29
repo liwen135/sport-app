@@ -9,4 +9,6 @@
     <dubbo:registry address="192.168.198.134:2181" protocol="zookeeper"/>
     <!-- 3.引用-->
     <dubbo:reference interface="com.ca.sport.service.test.TestAppService" id="testAppService"/>
+
+
 </beans>

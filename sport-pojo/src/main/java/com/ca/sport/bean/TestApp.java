@@ -1,6 +1,8 @@
 package com.ca.sport.bean;
 
-public class TestApp {
+import java.io.Serializable;
+
+public class TestApp implements Serializable {
 
     private Long id;
 

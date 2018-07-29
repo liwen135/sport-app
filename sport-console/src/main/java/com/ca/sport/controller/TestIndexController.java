@@ -15,15 +15,15 @@ import javax.annotation.Resource;
 public class TestIndexController {
 
     private Logger logger = LoggerFactory.getLogger(TestIndexController.class);
-    //    @Resource
+    @Resource
     private TestAppService testAppService;
 
 
     @RequestMapping("/index")
     public String gotoIndex(Model model) {
-//        TestApp testApp = testAppService.selectById(1L);
-//        model.addAttribute("name", testApp.getName());
-//        model.addAttribute("age", testApp.getAge());
+        TestApp testApp = testAppService.selectById(1L);
+        model.addAttribute("name", testApp.getName());
+        model.addAttribute("age", testApp.getAge());
         model.addAttribute("test", "testApp");
         logger.debug("test controller");
         return "index";

@@ -40,5 +40,5 @@
     <bean id="fmXmlEscape" class="freemarker.template.utility.XmlEscape"/>
     <mvc:annotation-driven/>
 
-    <!--<import resource="spring-console-mvc.xml"></import>-->
+    <import resource="spring-console-consumer.xml"></import>
 </beans>
