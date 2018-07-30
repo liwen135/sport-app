@@ -36,6 +36,6 @@
     </filter-mapping>
     <context-param>
         <param-name>log4jConfiguration</param-name>
-        <param-value>/WEB-INF/classes/log4j2.xml</param-value>
+        <param-value>classpath:log4j2.xml</param-value>
     </context-param>
 </web-app>
