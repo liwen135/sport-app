@@ -35,7 +35,11 @@
         <dispatcher>ERROR</dispatcher>
     </filter-mapping>
     <context-param>
+        <param-name>log4jContextName</param-name>
+        <param-value>star</param-value>
+    </context-param>
+    <context-param>
         <param-name>log4jConfiguration</param-name>
-        <param-value>classpath:log4j2.xml</param-value>
+        <param-value>/WEB-INF/conf/log4j2.xml</param-value>
     </context-param>
 </web-app>

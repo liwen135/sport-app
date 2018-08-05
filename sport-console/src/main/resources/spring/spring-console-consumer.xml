@@ -6,9 +6,13 @@
     <!--1.名称 -->
     <dubbo:application name="spring-console-consumer"/>
     <!--2.注册中心 -->
-    <dubbo:registry address="192.168.198.134:2181" protocol="zookeeper"/>
+    <!--<dubbo:registry address="192.168.198.134:2181" protocol="zookeeper"/>-->
+    <!--直连服务,取消从zookeeper中获取服务 ,注释掉注册中心-->
+    <dubbo:registry address="N/A" check="false"/>
     <!-- 3.引用-->
-    <dubbo:reference interface="com.ca.sport.service.test.TestAppService" id="testAppService"/>
+    <dubbo:reference interface="com.ca.sport.service.test.TestAppService" id="testAppService" url="127.0.0.1:20880"/>
 
 
+    <!--全局设置,消费端超时间,不检查 -->
+    <dubbo:consumer timeout="10000" check="false"/>
 </beans>
