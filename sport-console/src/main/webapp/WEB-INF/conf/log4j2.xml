@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Configuration status="ErrorLog" monitorInterval="1800">
+<Configuration status="WARN" monitorInterval="300">
 
     <properties>
         <property name="LOG_HOME">/EXPORT/SPORT/LOGS</property>
@@ -38,15 +38,16 @@
         </logger>
 
         <logger name="com.ca.sport" level="${LOG_LEVEL}" additivity="false">
-            <appender-ref ref="ErrorLog"/>
+            <appender-ref ref="Trace"/>
             <appender-ref ref="Console"/>
         </logger>
-        <logger name="com.alibaba.dubbo" level="${LOG_LEVEL}" additivity="false">
-            <appender-ref ref="ErrorLog"/>
-            <appender-ref ref="Console"/>
-        </logger>
+        <!--<logger name="com.alibaba.dubbo" level="${LOG_LEVEL}" additivity="false">-->
+            <!--<appender-ref ref="Trace"/>-->
+            <!--<appender-ref ref="Console"/>-->
+        <!--</logger>-->
         <root level="${LOG_LEVEL}">
             <appender-ref ref="Console"/>
+
         </root>
     </Loggers>
 </Configuration>

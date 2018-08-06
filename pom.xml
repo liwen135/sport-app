@@ -20,7 +20,7 @@
     </modules>
     <name>sport-app</name>
     <build>
-        <finalName>snail</finalName>
+        <finalName>sport-app</finalName>
         <sourceDirectory>src/main/java</sourceDirectory>
         <testSourceDirectory>src/test/java</testSourceDirectory>
         <resources>
@@ -56,8 +56,8 @@
                 <mvn.jdbc.mysql.password>root</mvn.jdbc.mysql.password>
                 <mvn.log.business.level>DEBUG</mvn.log.business.level>
                 <mvn.log.lib.level>DEBUG</mvn.log.lib.level>
-                <mvn.app.name>snail</mvn.app.name>
-                <mvn.domain>snail</mvn.domain>
+                <mvn.app.name>sport-app</mvn.app.name>
+                <mvn.domain>sport-app</mvn.domain>
             </properties>
         </profile>
 
