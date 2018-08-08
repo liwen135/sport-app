@@ -19,8 +19,8 @@ public class TestApp {
     @Test
     public void testInsert() {
         com.ca.sport.bean.TestApp testApp = new com.ca.sport.bean.TestApp();
-        testApp.setAge(12);
-        testApp.setName("华为");
+        testApp.setAge(15);
+        testApp.setName("华为2");
         testAppService.insert(testApp);
     }
 }

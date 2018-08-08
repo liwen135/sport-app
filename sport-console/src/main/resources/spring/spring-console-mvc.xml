@@ -6,6 +6,12 @@
 
     <context:component-scan base-package="com.ca.sport"/>
     <!--  2、视图解析器-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/console/"/>
+        <property name="suffix" value=".jsp"/>
+        <property name="order" value="0"/>
+    </bean>
+
 
     <!--配置freemarker视图解析器 -->
     <!-- 配置freeMarker视图解析器 -->
@@ -14,7 +20,7 @@
         <property name="contentType" value="text/html; charset=utf-8"/>
         <property name="cache" value="true"/>
         <property name="suffix" value=".ftl"/>
-        <property name="order" value="0"/>
+        <property name="order" value="10"/>
     </bean>
 
     <!-- 配置freeMarker的模板路径 -->
