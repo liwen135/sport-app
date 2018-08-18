@@ -1,12 +1,6 @@
-package com.ca.sport.bean;
+package com.ca.sport.bean.product;
 
-import java.io.Serializable;
-
-/**
- * 品牌
- */
-public class Brand implements Serializable {
-
+public class BrandQuery {
     /**
      * 品牌ID
      */
@@ -35,6 +29,18 @@ public class Brand implements Serializable {
      * 是否可用   0 不可用 1 可用
      */
     private Integer isDisplay;
+
+
+
+
+    private Integer pageNo = 1;
+
+    private Integer pageSize = 10;
+
+    /**
+     * 开始行
+     */
+    private Integer startRow;
 
     public Long getId() {
         return id;
@@ -83,4 +89,33 @@ public class Brand implements Serializable {
     public void setIsDisplay(Integer isDisplay) {
         this.isDisplay = isDisplay;
     }
+
+    public void setStartRow(Integer startRow) {
+        this.startRow = startRow;
+    }
+
+    public Integer getPageNo() {
+        return pageNo;
+    }
+
+    public void setPageNo(Integer pageNo) {
+        this.startRow = (pageNo - 1) * pageSize;
+        this.pageNo = pageNo;
+    }
+
+    public Integer getPageSize() {
+        return pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.startRow = (pageNo - 1) * pageSize;
+        this.pageSize = pageSize;
+    }
+
+    public Integer getStartRow() {
+        return startRow;
+    }
+
 }
+
+

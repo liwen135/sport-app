@@ -329,7 +329,11 @@
             </dependency>
 
             <!-- FastDFS client -->
-
+            <dependency>
+                <groupId>fastdfs_client</groupId>
+                <artifactId>fastdfs_client</artifactId>
+                <version>1.20</version>
+            </dependency>
             <!-- https://mvnrepository.com/artifact/com.luhuiguo/fastdfs-client -->
             <dependency>
                 <groupId>com.luhuiguo</groupId>

@@ -23,8 +23,8 @@
     </settings>
 
     <typeAliases>
-        <typeAlias alias="TestApp" type="com.ca.sport.bean.TestApp"/>
-
+        <!--<typeAlias alias="TestApp" type="com.ca.sport.bean.TestApp"/>-->
+        <package name="com.ca.sport.bean"></package>
     </typeAliases>
 
     <mappers>

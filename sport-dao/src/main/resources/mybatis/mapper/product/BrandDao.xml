@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.sport.dao.product.BrandDao">
+
+    <resultMap type="Brand" id="brandMap">
+        <result column="img_url" property="imgUrl"/>
+        <result column="is_display" property="isDisplay"/>
+    </resultMap>
+
+
+    <!-- 查询 -->
+    <select id="selectList" parameterType="BrandQuery" resultMap="brandMap">
+        select id , name ,description,img_url,sort,is_display
+        from bbs_brand
+        <where>
+            <if test="brandName != null">
+                brand_name like "%"#{brandName}"%"
+            </if>
+            <if test="isDisplay != null">
+                and is_display = #{isDisplay}
+            </if>
+        </where>
+        <if test="startRow != null">
+            limit #{startRow},#{pageSize}
+        </if>
+    </select>
+    <!-- 查询总条数-->
+    <select id="selectCount" parameterType="BrandQuery" resultType="java.lang.Integer">
+        select count(1)
+        from bbs_brand
+        <where>
+            <if test="name != null">
+                name like "%"#{name}"%"
+            </if>
+            <if test="isDisplay != null">
+                and is_display = #{isDisplay}
+            </if>
+        </where>
+    </select>
+    <!-- 通过ID查询 -->
+    <select id="selectBrandById" parameterType="java.lang.Long" resultMap="brandMap">
+        select id , name ,description,img_url,sort,is_display
+        from bbs_brand
+        <where>
+            id = #{id}
+        </where>
+    </select>
+    <!-- 修改 -->
+    <update id="updateBrandById" parameterType="Brand">
+        update bbs_brand
+        <set>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="description != null">
+                description = #{description},
+            </if>
+            <if test="imgUrl != null">
+                img_url = #{imgUrl},
+            </if>
+            <if test="sort != null">
+                sort = #{sort},
+            </if>
+            <if test="isDisplay != null">
+                is_display = #{isDisplay}
+            </if>
+        </set>
+        <where>
+            id = #{id}
+        </where>
+    </update>
+
+    <!-- 删除 (1,2,3,4) -->
+    <delete id="deletes" parameterType="java.lang.Long">
+        delete from bbs_brand
+        <where>
+            id in
+            <foreach collection="array" item="id" separator="," open="(" close=")">
+                #{id}
+            </foreach>
+        </where>
+    </delete>
+
+</mapper>

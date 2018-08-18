@@ -178,6 +178,12 @@
         </dependency>
 
         <!-- FastDFS client -->
+        <!-- FastDFS client -->
+
+        <dependency>
+            <groupId>fastdfs_client</groupId>
+            <artifactId>fastdfs_client</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>com.luhuiguo</groupId>
@@ -277,7 +283,6 @@
         <dependency>
             <groupId>org.apache.tomcat</groupId>
             <artifactId>tomcat-jsp-api</artifactId>
-            <scope>provided</scope>
         </dependency>
     </dependencies>
 
