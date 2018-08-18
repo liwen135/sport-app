@@ -48,7 +48,7 @@
 			<td align="center">2014-12-12 11:40:08.0</td>
 			<td align="center"></td>
 			<td align="center">
-			<a href="view.jsp" class="pn-opt">查看</a>
+			<a href="/order/view.do" class="pn-opt">查看</a>
 			</td>
 		</tr>
 		
@@ -65,7 +65,7 @@
 			<td align="center">2014-12-12 17:09:11.0</td>
 			<td align="center"></td>
 			<td align="center">
-			<a href="view.jsp" class="pn-opt">查看</a>
+			<a href="/order/view.do" class="pn-opt">查看</a>
 			</td>
 		</tr>
 		
@@ -82,7 +82,7 @@
 			<td align="center">2014-12-12 17:22:59.0</td>
 			<td align="center"></td>
 			<td align="center">
-			<a href="view.jsp" class="pn-opt">查看</a>
+			<a href="/order/view.do" class="pn-opt">查看</a>
 			</td>
 		</tr>
 		
@@ -99,7 +99,7 @@
 			<td align="center">2014-12-12 17:23:11.0</td>
 			<td align="center"></td>
 			<td align="center">
-			<a href="view.jsp" class="pn-opt">查看</a>
+			<a href="/order/view.do" class="pn-opt">查看</a>
 			</td>
 		</tr>
 		

@@ -13,7 +13,7 @@
 
     <!-- redis spring管理redis-->
     <bean id="jedis" class="redis.clients.jedis.Jedis">
-        <constructor-arg value="192.168.198.134" index="0" type="java.lang.String"></constructor-arg>
+        <constructor-arg value="192.168.47.100" index="0" type="java.lang.String"></constructor-arg>
         <constructor-arg value="6379" index="1"></constructor-arg>
     </bean>
 
