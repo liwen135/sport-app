@@ -33,8 +33,8 @@ public class ProductServiceImpl implements ProductService {
     private ProductDao productDao;
 
     //分页对象
-    public Pagination selectPaginationByQuery(Integer pageNo, String name
-            , Long brandId, Boolean isShow) {
+    @Override
+    public Pagination selectPaginationByQuery(Integer pageNo, String name, Long brandId, Boolean isShow) {
         ProductQuery productQuery = new ProductQuery();
         productQuery.setPageNo(Pagination.cpn(pageNo));
         //排序
@@ -75,6 +75,7 @@ public class ProductServiceImpl implements ProductService {
     private ColorDao colorDao;
 
     //颜色结果集
+    @Override
     public List<Color> selectColorList() {
         ColorQuery colorQuery = new ColorQuery();
         colorQuery.createCriteria().andParentIdNotEqualTo(0L);
@@ -87,6 +88,7 @@ public class ProductServiceImpl implements ProductService {
     private Jedis jedis;
 
     //商品保存
+    @Override
     public void insertProduct(Product product) {
         //保存商品
         Long id = jedis.incr("pno");
@@ -130,10 +132,11 @@ public class ProductServiceImpl implements ProductService {
         }
     }
 
-    @Autowired
+//    @Autowired
     private JmsTemplate jmsTemplate;
 
     //上架
+    @Override
     public void isShow(Long[] ids) {
         Product product = new Product();
         //上架

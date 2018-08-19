@@ -30,6 +30,7 @@ public class BrandServiceImpl implements BrandService {
     private BrandDao brandDao;
 
     //查询分页对象
+    @Override
     public Pagination selectPaginationByQuery(String name, Integer isDisplay, Integer pageNo) {
         BrandQuery brandQuery = new BrandQuery();
         //当前页
@@ -52,11 +53,7 @@ public class BrandServiceImpl implements BrandService {
             params.append("&isDisplay=").append(1);
         }
 
-        Pagination pagination = new Pagination(
-                brandQuery.getPageNo(),
-                brandQuery.getPageSize(),
-                brandDao.selectCount(brandQuery)
-        );
+        Pagination pagination = new Pagination(brandQuery.getPageNo(), brandQuery.getPageSize(), brandDao.selectCount(brandQuery));
         //设置结果集
         pagination.setList(brandDao.selectList(brandQuery));
         //分页展示
@@ -84,6 +81,7 @@ public class BrandServiceImpl implements BrandService {
     }
 
     //查询 从Redis中
+    @Override
     public List<Brand> selectBrandListFromRedis() {
         List<Brand> brands = new ArrayList<Brand>();
         //Redis中查

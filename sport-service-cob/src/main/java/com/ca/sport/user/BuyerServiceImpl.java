@@ -35,6 +35,7 @@ public class BuyerServiceImpl implements BuyerService {
     private BuyerDao buyerDao;
 
     //通过用户名查询用户对象
+    @Override
     public Buyer selectBuyerByUsername(String username) {
         BuyerQuery buyerQuery = new BuyerQuery();
         buyerQuery.createCriteria().andUsernameEqualTo(username);
@@ -54,6 +55,7 @@ public class BuyerServiceImpl implements BuyerService {
     private DetailDao detailDao;
 
     //保存订单
+    @Override
     public void insertOrder(Order order, String username) {
 //		ID（订单编号）全国唯一Redis
         Long id = jedis.incr("oid");

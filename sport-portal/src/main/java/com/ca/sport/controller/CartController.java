@@ -1,7 +1,9 @@
 package com.ca.sport.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.ca.sport.bean.BuyerCart;
 import com.ca.sport.bean.BuyerItem;
+import com.ca.sport.bean.order.Order;
 import com.ca.sport.bean.product.Sku;
 import com.ca.sport.product.SkuService;
 import com.ca.sport.user.BuyerService;
@@ -16,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.StringWriter;
 import java.util.List;
 
 /**
@@ -36,12 +37,9 @@ public class CartController {
 
     //加入购物车
     @RequestMapping(value = "/addCart")
-    public String addCart(Long skuId, Integer amount, Model model
-            , HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public String addCart(Long skuId, Integer amount, Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-        ObjectMapper om = new ObjectMapper();
-        //不要NULL 不要转了
-        om.setSerializationInclusion(Include.NON_NULL);
+
         //声明
         BuyerCart buyerCart = null;
 
@@ -53,7 +51,7 @@ public class CartController {
 //		2：判断Cookie中没有购物车
                 if (Constants.BUYER_CART.equals(cookie.getName())) {
                     //转回对象
-                    buyerCart = om.readValue(cookie.getValue(), BuyerCart.class);
+                    buyerCart = JSON.parseObject(cookie.getValue(), BuyerCart.class);
                     break;
                 }
             }
@@ -87,9 +85,8 @@ public class CartController {
             response.addCookie(cookie);
         } else {
 //			6：创建Cookie 把新购物车放进去
-            StringWriter w = new StringWriter();
-            om.writeValue(w, buyerCart);
-            Cookie cookie = new Cookie(Constants.BUYER_CART, w.toString());
+            String str = JSON.toJSONString(buyerCart);
+            Cookie cookie = new Cookie(Constants.BUYER_CART, str);
             //设置时间     写程序1天
             cookie.setMaxAge(60 * 60 * 24);
             //设置路径
@@ -106,12 +103,9 @@ public class CartController {
 
     //去购物车页面
     @RequestMapping(value = "/toCart")
-    public String toCart(Model model
-            , HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public String toCart(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
 //		1：从Request中取Cookies、遍历Cookie 取出之前的购物车
-        ObjectMapper om = new ObjectMapper();
-        //不要NULL 不要转了
-        om.setSerializationInclusion(Include.NON_NULL);
+
         //声明
         BuyerCart buyerCart = null;
 
@@ -123,7 +117,7 @@ public class CartController {
 //		2：判断Cookie中没有购物车
                 if (Constants.BUYER_CART.equals(cookie.getName())) {
                     //转回对象
-                    buyerCart = om.readValue(cookie.getValue(), BuyerCart.class);
+                    buyerCart = JSON.parseObject(cookie.getValue(), BuyerCart.class);
                     break;
                 }
             }

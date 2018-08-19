@@ -61,8 +61,7 @@ public class LoginController {
 
     //提交登陆
     @RequestMapping(value = "/login.aspx", method = RequestMethod.POST)
-    public String login(String username, String password, String returnUrl,
-                        HttpServletRequest request, HttpServletResponse response, Model model) {
+    public String login(String username, String password, String returnUrl, HttpServletRequest request, HttpServletResponse response, Model model) {
         //1:用户名不能为空
         if (null != username) {
             //2:密码不能为空

@@ -69,9 +69,9 @@
             </activation>
             <properties>
                 <mvn.jdbc.mysql.Driver>com.mysql.jdbc.Driver</mvn.jdbc.mysql.Driver>
-                <mvn.jdbc.mysql.url>jdbc:mysql://localhost:3306/sport?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false </mvn.jdbc.mysql.url>
+                <mvn.jdbc.mysql.url>jdbc:mysql://localhost:3306/sport?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false</mvn.jdbc.mysql.url>
                 <mvn.jdbc.mysql.username>root</mvn.jdbc.mysql.username>
-                <mvn.jdbc.mysql.password>root</mvn.jdbc.mysql.password>
+                <mvn.jdbc.mysql.password>123456</mvn.jdbc.mysql.password>
                 <mvn.log.business.level>root</mvn.log.business.level>
                 <mvn.log.lib.level>DEBUG</mvn.log.lib.level>
                 <mvn.app.name>steam-age</mvn.app.name>
@@ -104,7 +104,6 @@
         <junit-version>4.12</junit-version>
         <spring.version>4.3.18.RELEASE</spring.version>
         <fast-json.version>1.2.47</fast-json.version>
-        <mysql-connector-java-version>5.1.41</mysql-connector-java-version>
         <org.mybatis-version>3.4.5</org.mybatis-version>
         <org.mybatis-spring-version>1.3.1</org.mybatis-spring-version>
         <opensymphony-version>2.4.2</opensymphony-version>
@@ -121,6 +120,7 @@
         <javax.servlet-jsp-version>2.0</javax.servlet-jsp-version>
         <cglib-version>3.2.5</cglib-version>
         <slf4j-api-version>1.7.2</slf4j-api-version>
+        <jackson.version>2.5.4</jackson.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -128,7 +128,6 @@
     <!-- 设置统一依赖管理、不强行依赖 -->
     <dependencyManagement>
         <dependencies>
-            <!-- with junit4.8.2 -->
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
@@ -193,6 +192,24 @@
                 <artifactId>fastjson</artifactId>
                 <version>${fast-json.version}</version>
             </dependency>
+
+            　
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <!--<dependency>-->
+                <!--<groupId>com.fasterxml.jackson.module</groupId>-->
+                <!--<artifactId>jackson-module-jaxb-annotations</artifactId>-->
+                <!--<version>${jackson.version}</version>-->
+            <!--</dependency>-->
+
             <!--freemarker -->
             <dependency>
                 <groupId>org.freemarker</groupId>
@@ -214,7 +231,7 @@
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
-                <version>${mysql-connector-java-version}</version>
+                <version>8.0.11</version>
             </dependency>
             <!-- 连接池 -->
             <dependency>
@@ -329,11 +346,11 @@
             </dependency>
 
             <!-- FastDFS client -->
-            <dependency>
-                <groupId>fastdfs_client</groupId>
-                <artifactId>fastdfs_client</artifactId>
-                <version>1.20</version>
-            </dependency>
+            <!--<dependency>-->
+            <!--<groupId>fastdfs_client</groupId>-->
+            <!--<artifactId>fastdfs_client</artifactId>-->
+            <!--<version>1.20</version>-->
+            <!--</dependency>-->
             <!-- https://mvnrepository.com/artifact/com.luhuiguo/fastdfs-client -->
             <dependency>
                 <groupId>com.luhuiguo</groupId>
@@ -389,12 +406,13 @@
             <dependency>
                 <groupId>org.apache.tomcat</groupId>
                 <artifactId>tomcat-jsp-api</artifactId>
-                <version>8.5.32</version>
-                <scope>provided</scope>
+                <version>8.5.33</version>
+                <!--<scope>provided</scope>-->
             </dependency>
 
 
         </dependencies>
+
     </dependencyManagement>
 
 

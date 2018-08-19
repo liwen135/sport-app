@@ -26,6 +26,7 @@ public class StaticPageServiceImpl implements StaticPageService, ServletContextA
     }
 
     //静态化 商品  ActiveMQ
+    @Override
     public void productStaticPage(Map<String, Object> root, String id) {
         //输出的路径  全路径
         String path = getPath("/html/product/" + id + ".html");
@@ -44,14 +45,12 @@ public class StaticPageServiceImpl implements StaticPageService, ServletContextA
             template.process(root, out);
 
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         } finally {
             if (null != out) {
                 try {
                     out.close();
                 } catch (IOException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
             }

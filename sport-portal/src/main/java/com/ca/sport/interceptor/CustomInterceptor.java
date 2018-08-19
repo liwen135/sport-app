@@ -21,9 +21,7 @@ public class CustomInterceptor implements HandlerInterceptor {
     private SessionProvider sessionProvider;
 
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
-            throws Exception {
-        // TODO Auto-generated method stub
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         //必须登陆
         String username = sessionProvider.getAttributeForUsername(RequestUtils.getCSESSIONID(request, response));
         if (null == username) {
@@ -37,16 +35,12 @@ public class CustomInterceptor implements HandlerInterceptor {
     }
 
     @Override
-    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
-                           ModelAndView modelAndView) throws Exception {
-        // TODO Auto-generated method stub
+    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
 
     }
 
     @Override
-    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
-            throws Exception {
-        // TODO Auto-generated method stub
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
 
     }
 

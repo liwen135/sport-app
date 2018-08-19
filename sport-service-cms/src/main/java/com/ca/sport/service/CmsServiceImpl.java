@@ -31,12 +31,14 @@ public class CmsServiceImpl implements CmsService {
     private ColorDao colorDao;
 
     //查询商品
+    @Override
     public Product selectProductById(Long productId) {
 
         return productDao.selectByPrimaryKey(productId);
     }
 
     //查询Sku结果集 (包括颜色）  有货
+    @Override
     public List<Sku> selectSkuListByProductId(Long productId) {
         SkuQuery skuQuery = new SkuQuery(); //大于0
         skuQuery.createCriteria().andProductIdEqualTo(productId).andStockGreaterThan(0);

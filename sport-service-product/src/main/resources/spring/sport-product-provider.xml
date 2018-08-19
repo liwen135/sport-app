@@ -15,4 +15,11 @@
     <dubbo:protocol port="20880" name="dubbo"/>
     <!-- 4.实现类-->
     <dubbo:service interface="com.ca.sport.service.test.TestAppService" ref="testAppService"/>
+
+
+    <dubbo:service interface="com.ca.sport.product.SkuService" ref="skuService"/>
+
+    <dubbo:service interface="com.ca.sport.product.BrandService" ref="brandService"/>
+
+
 </beans>

@@ -1,7 +1,5 @@
 package com.ca.sport.bean;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 public class Ad {
 
 /*	"srcB":"/images/5653e38eNed7f4ffc.jpg",
@@ -12,7 +10,6 @@ public class Ad {
 	"widthB":550,
 	"href":"javascript:;",
 	"heightB":399*/
-	@JsonProperty(value = "srcB")
 	private String srcC;
 	private Integer height = 399;
 	private String alt;

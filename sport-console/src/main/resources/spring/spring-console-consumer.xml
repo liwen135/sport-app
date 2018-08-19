@@ -13,6 +13,10 @@
     <dubbo:reference interface="com.ca.sport.service.test.TestAppService" id="testAppService" url="127.0.0.1:20880"/>
 
 
+    <dubbo:reference interface="com.ca.sport.product.SkuService" id="skuService" url="127.0.0.1:20880"/>
+
+    <dubbo:reference interface="com.ca.sport.product.BrandService" id="brandService" url="127.0.0.1:20880"/>
+
     <!--全局设置,消费端超时间,不检查 -->
     <dubbo:consumer timeout="10000" check="false"/>
 </beans>

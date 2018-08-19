@@ -4,14 +4,18 @@
 <mapper namespace="com.ca.sport.dao.product.BrandDao">
 
     <resultMap type="Brand" id="brandMap">
-        <result column="img_url" property="imgUrl"/>
-        <result column="is_display" property="isDisplay"/>
+        <id column="id" property="id" jdbcType="BINGINT"></id>
+        <result column="brand_name" property="brandName" jdbcType="VARCHAR"></result>
+        <result column="description" property="description" jdbcType="VARCHAR"></result>
+        <result column="sort" property="sort" jdbcType="INTEGER"></result>
+        <result column="img_url" property="imgUrl" jdbcType="VARCHAR"/>
+        <result column="is_display" property="isDisplay" jdbcType="TINYINT"/>
     </resultMap>
 
 
     <!-- 查询 -->
     <select id="selectList" parameterType="BrandQuery" resultMap="brandMap">
-        select id , name ,description,img_url,sort,is_display
+        select id , brand_name ,description,img_url,sort,is_display
         from bbs_brand
         <where>
             <if test="brandName != null">

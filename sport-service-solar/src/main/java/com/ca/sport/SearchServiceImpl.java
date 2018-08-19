@@ -34,6 +34,7 @@ public class SearchServiceImpl implements SearchService {
 	private SolrServer solrServer;
 	
 	//全文检索
+	@Override
 	public Pagination selectPaginationByQuery(Integer pageNo, String keyword, Long brandId, String price) throws Exception {
 		//创建包装类
 	    ProductQuery productQuery = new ProductQuery();
@@ -127,6 +128,7 @@ public class SearchServiceImpl implements SearchService {
 	@Autowired
 	private SkuDao skuDao;
 	//保存商品信息到Solr服务器
+	@Override
 	public void insertProductToSolr(Long id){
 		//TODO 保存商品信息到SOlr服务器
 		SolrInputDocument doc = new SolrInputDocument();

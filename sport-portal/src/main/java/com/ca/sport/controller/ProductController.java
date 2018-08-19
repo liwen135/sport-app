@@ -1,9 +1,12 @@
 package com.ca.sport.controller;
 
 
+import com.alibaba.fastjson.JSON;
 import com.ca.sport.CmsService;
 import com.ca.sport.SearchService;
+import com.ca.sport.bean.Ad;
 import com.ca.sport.bean.product.Brand;
+import com.ca.sport.bean.product.Color;
 import com.ca.sport.bean.product.Product;
 import com.ca.sport.bean.product.Sku;
 import com.ca.sport.page.Pagination;
@@ -46,9 +49,7 @@ public class ProductController {
         ads.add(ad2);
         ads.add(ad3);
         ads.add(ad4);
-        ObjectMapper om = new ObjectMapper();
-        om.setSerializationInclusion(Include.NON_NULL);
-        String aa = om.writeValueAsString(ads);
+        String aa = JSON.toJSONString(ads);
         model.addAttribute("aa", aa);
         return "index";
     }
@@ -72,8 +73,8 @@ public class ProductController {
         //品牌
         if (null != brandId) {
             for (Brand brand : brands) {
-                if (brandId == brand.getId()) {
-                    map.put("品牌", brand.getName());
+                if (brandId.equals(brand.getId())) {
+                    map.put("品牌", brand.getBrandName());
                     break;
                 }
             }

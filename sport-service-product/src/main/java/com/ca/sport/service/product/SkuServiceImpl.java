@@ -32,8 +32,14 @@ public class SkuServiceImpl implements SkuService {
     private SkuDao skuDao;
     @Autowired
     private ColorDao colorDao;
+    @Autowired
+    private Jedis jedis;
+
+    @Autowired
+    private ProductDao productDao;
 
     //商品ID 查询 库存结果集
+    @Override
     public List<Sku> selectSkuListByProductId(Long productId) {
         SkuQuery skuQuery = new SkuQuery();
         skuQuery.createCriteria().andProductIdEqualTo(productId);
@@ -47,14 +53,14 @@ public class SkuServiceImpl implements SkuService {
     }
 
     //修改
+    @Override
     public void updateSkuById(Sku sku) {
         skuDao.updateByPrimaryKeySelective(sku);
     }
 
-    @Autowired
-    private ProductDao productDao;
 
     //通过SKUID查询SKU对象
+    @Override
     public Sku selectSkuById(Long id) {
         //SKu对象
         Sku sku = skuDao.selectByPrimaryKey(id);
@@ -66,10 +72,9 @@ public class SkuServiceImpl implements SkuService {
 
     }
 
-    @Autowired
-    private Jedis jedis;
 
     //保存商品到Redis中
+    @Override
     public void insertBuyerCartToRedis(BuyerCart buyerCart, String username) {
         //判断购物项的长度大于0
         List<BuyerItem> items = buyerCart.getItems();
@@ -87,6 +92,7 @@ public class SkuServiceImpl implements SkuService {
     }
 
     //取出购物车从Redis
+    @Override
     public BuyerCart selectBuyerCartFromRedis(String username) {
         BuyerCart buyerCart = new BuyerCart();
         Map<String, String> hgetAll = jedis.hgetAll("buyerCart:" + username);

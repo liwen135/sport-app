@@ -1,0 +1,34 @@
+DROP TABLE IF EXISTS `bbs_brand`;
+CREATE TABLE `bbs_brand` (
+  `id` BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `brand_name` VARCHAR(40) NOT NULL COMMENT '名称',
+  `description` VARCHAR(80) DEFAULT NULL COMMENT '描述',
+  `img_url` VARCHAR(80) DEFAULT NULL COMMENT '图片Url',
+  `web_site` VARCHAR(80) DEFAULT NULL COMMENT '品牌网址',
+  `sort` INT(11) DEFAULT NULL COMMENT '排序:最大最排前',
+  `is_display` TINYINT(1) DEFAULT NULL COMMENT '是否可见 1:可见 0:不可见',
+  PRIMARY KEY (`id`)
+) ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT='品牌';
+
+
+
+INSERT INTO bbs_brand VALUES ('1', '依琦莲', NULL, NULL, NULL, '99', '1');
+INSERT INTO bbs_brand VALUES ('2', '凯速（KANSOON）', NULL, NULL, NULL, 98, '1');
+INSERT INTO bbs_brand VALUES ('3', '梵歌纳（vangona）', NULL, NULL, NULL, 97, '1');
+INSERT INTO bbs_brand VALUES ('4', '伊朵莲', NULL, NULL, NULL, 96, '1');
+INSERT INTO bbs_brand VALUES ('5', '菩媞', NULL, NULL, NULL, 95, '1');
+INSERT INTO bbs_brand VALUES ('6', '丹璐斯', NULL, NULL, NULL, 94, '1');
+INSERT INTO bbs_brand VALUES ('7', '喜悦瑜伽', NULL, NULL, NULL, 93, '1');
+INSERT INTO bbs_brand VALUES ('8', '皮尔（pieryoga）', NULL, NULL, NULL, 92, '1');
+INSERT INTO bbs_brand VALUES ('9', '路伊梵（LEFAN）', NULL, NULL, NULL, 91, '1');
+INSERT INTO bbs_brand VALUES ('10', '金啦啦', NULL, NULL, NULL, 90, '0');
+INSERT INTO bbs_brand VALUES ('11', '来尔瑜伽（LaiErYoGA）', NULL, NULL, NULL, 89, '1');
+INSERT INTO bbs_brand VALUES ('12', '艾米达（aimida）', NULL, NULL, NULL, 88, '1');
+INSERT INTO bbs_brand VALUES ('13', '斯泊恩', NULL, NULL, NULL, 87, '1');
+INSERT INTO bbs_brand VALUES ('14', '康愫雅KSUA', NULL, NULL, NULL, 86, '1');
+INSERT INTO bbs_brand VALUES ('15', '格宁', NULL, NULL, NULL, 85, '1');
+INSERT INTO bbs_brand VALUES ('16', 'E奈尔（Enaier）', NULL, NULL, NULL, 84, '1');
+INSERT INTO bbs_brand VALUES ('17', '哈他', NULL, NULL, NULL, 83, '1');
+INSERT INTO bbs_brand VALUES ('18', '伽美斯（Jamars）', NULL, NULL, NULL, 82, '1');
+INSERT INTO bbs_brand VALUES ('19', '瑜伽树（yogatree）', NULL, NULL, NULL, 81, '1');
+INSERT INTO bbs_brand VALUES ('20', '兰博伊人（lanboyiren）', NULL, NULL, NULL, 80, '1');
